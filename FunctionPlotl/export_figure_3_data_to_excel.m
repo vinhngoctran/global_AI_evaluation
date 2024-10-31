@@ -1,9 +1,5 @@
 function export_figure_3_data_to_excel()
-%%
-    % Load all necessary data
     load('RESULTS2\R8_Regional_GB_2.mat', 'Qobs', 'Qsim', "TimeDATE", "StationID", 'InforSelec', 'DataAll', 'OverlapInfo', 'AREA_all', 'overlapdata');
-    
-    % Initialize tables
     T_GB = table();
     T_US = table();
     T_CNRFC = table();

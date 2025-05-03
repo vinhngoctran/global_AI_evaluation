@@ -1,0 +1,13 @@
+This code was used to assess the performance of global AI model (developed by Google) in flood simulations.
+Dataset:
+Observed streamflow: https://grdc.bafg.de/
+Global reanalysis and reforecast streamflow data from global AI model https://zenodo.org/records/10397664
+Simulations from regional ML model: 
+- https://hess.copernicus.org/articles/23/5089/2019/
+- https://hess.copernicus.org/articles/27/139/2023/#section7
+- https://hess.copernicus.org/articles/25/5517/2021/#section6
+Actual forecast from CNRFC: https://www.cnrfc.noaa.gov/arc_search.php?product=netcdfqpf
+Dam and reservoir data: https://doi.org/10.5281/zenodo.7616851
+HydroBasin data: https://www.hydrosheds.org/hydroatlas
+Caravan dataset: https://zenodo.org/records/7540792
+

@@ -41,18 +41,18 @@ LocationDat{2} = OverlapInfo;
 load('RESULTS_FINAL\R8_Regional_CNRFC_3.mat','Time','DataAll','OverlapInfo','overlapdata_CNRFC');  
 for i=1:size(OverlapInfo,1)
         for LT = 1:4
-            NSEvalue{3,1}(i,1,LT) = Nash(DataAll{i,1}(:,9),DataAll{i,1}(:,LT+1));
-            NSEvalue{3,1}(i,2,LT) = Nash(DataAll{i,2}(:,9),DataAll{i,2}(:,LT+1));
+            NSEvalue{3,1}(i,1,LT) = Nash(DataAll{i,1}(LT+1:end,9),DataAll{i,1}(1:end-LT,LT+1));
+            NSEvalue{3,1}(i,2,LT) = Nash(DataAll{i,2}(LT+1:end,9),DataAll{i,2}(1:end-LT,LT+1));
             NSEvalue{3,1}(i,3,LT) = Nash(DataAll{i,1}(1+LT:end,14),DataAll{i,1}(1:end-LT,9+LT));
 
             [flood_events, event_peaks, event_dates] = find_flood_events(DataAll{i,1}(:,9));
             for j=1:numel(flood_events)
-                NSEvalue{3,2}{i}(j,1,LT) = Nash(DataAll{i,1}(event_dates{j},9),DataAll{i,1}(event_dates{j},LT+1));
-                NSEvalue{3,2}{i}(j,2,LT) = Nash(DataAll{i,2}(event_dates{j},9),DataAll{i,2}(event_dates{j},LT+1));
+                NSEvalue{3,2}{i}(j,1,LT) = Nash(DataAll{i,1}(event_dates{j},9),DataAll{i,1}(event_dates{j}-LT,LT+1));
+                NSEvalue{3,2}{i}(j,2,LT) = Nash(DataAll{i,2}(event_dates{j},9),DataAll{i,2}(event_dates{j}-LT,LT+1));
                 NSEvalue{3,2}{i}(j,3,LT) = Nash(DataAll{i,1}(event_dates{j},14),DataAll{i,1}(event_dates{j}-LT,9+LT));
 
-                NSEvalue{3,4}{i}(j,1,LT) = computeflooderror2(DataAll{i,1}(event_dates{j},9),DataAll{i,1}(event_dates{j},LT+1));
-                NSEvalue{3,4}{i}(j,2,LT) = computeflooderror2(DataAll{i,2}(event_dates{j},9),DataAll{i,2}(event_dates{j},LT+1));
+                NSEvalue{3,4}{i}(j,1,LT) = computeflooderror2(DataAll{i,1}(event_dates{j},9),DataAll{i,1}(event_dates{j}-LT,LT+1));
+                NSEvalue{3,4}{i}(j,2,LT) = computeflooderror2(DataAll{i,2}(event_dates{j},9),DataAll{i,2}(event_dates{j}-LT,LT+1));
                 NSEvalue{3,4}{i}(j,3,LT) = computeflooderror2(DataAll{i,1}(event_dates{j},14),DataAll{i,1}(event_dates{j}-LT,9+LT));
             end
             NSEvalue{3,3}(NSEvalue{3,3} == -Inf) = NaN;

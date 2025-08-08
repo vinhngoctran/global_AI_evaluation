@@ -367,7 +367,7 @@ plot_figure_2_final4_combine; % Figure 2
 % https://hess.copernicus.org/articles/23/5089/2019/
 % https://hess.copernicus.org/articles/27/139/2023/#section7
 % https://hess.copernicus.org/articles/25/5517/2021/#section6
-load('RESULTS_FINAL\R3_Nearing_sim_ungauged.mat',"BasinNearing","NearingSim","StartTime");
+load('RESULTS_FINAL\R3_Nearing_sim_gauged.mat',"BasinNearing","NearingSim","StartTime");
 load('RESULTS_FINAL\R2_Nearing_obs.mat', 'NearingObs')
 
 % Read Thomas data: CAMELS-GB
